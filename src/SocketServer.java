@@ -7,22 +7,28 @@ import java.net.Socket;
 public class SocketServer {
 
     private static ServerSocket server;
-    private static int port = 9876; // port to listen to
+    private static final int port = 9876; // port to listen to
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        server = new ServerSocket(port);
+
+        server = new ServerSocket(port); // Open a server to a port
 
         while (true) {
             System.out.println("Waiting for client connection : ");
+
+            // Accept connection to socket from the client
             Socket socket = server.accept();
+
+            // Get input from client
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-
             String message = (String)ois.readObject();
-            System.out.println("Got message !!");
+            System.out.println("Client : " + message);
 
+            // Send an answer to the client
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-            oos.writeObject("HIIIIIIIIIIIIIIIIIIIIIIII " + message);
+            oos.writeObject("You told me \"" + message + "\"");
 
+            // Close ressources
             ois.close();
             oos.close();
             socket.close();
