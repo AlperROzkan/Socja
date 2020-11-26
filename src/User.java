@@ -1,5 +1,3 @@
-package model;
-
 import java.util.Date;
 import java.util.Map;
 
@@ -33,7 +31,6 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
-
 
     public int getId() {
         return id;
