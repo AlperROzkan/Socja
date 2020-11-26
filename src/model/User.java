@@ -9,7 +9,7 @@ public class User {
     private final String lastname;
     private String status;
     private int id; // id
-    private Map<Date, String> publications;
+    private Map<Date, Post> publications;
 
     private static int user_count; // static variable used to count the users
 
@@ -39,11 +39,11 @@ public class User {
         return id;
     }
 
-    public Map<Date, String> getPublications() {
+    public Map<Date, Post> getPublications() {
         return publications;
     }
 
-    public void setPublications(Map<Date, String> publications) {
+    public void setPublications(Map<Date, Post> publications) {
         this.publications = publications;
     }
 }
