@@ -7,8 +7,9 @@ public class MainNode2 {
         Node node2 = new Node();
 
         while(true) {
-            node2.connectToServer(InetAddress.getLocalHost(), 6666);
+            node2.connectToServer(InetAddress.getByName("127.0.0.3"), 6666);
             node2.sendMessage("Hi Server");
+
             node2.closeClientResources();
             Thread.sleep(100);
         }

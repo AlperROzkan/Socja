@@ -13,26 +13,34 @@ public class Node {
     private Socket socketServer; // this will be the connection request from the client
     private ObjectInputStream oisServer; // buffer to get the client input
     private ObjectOutputStream oosServer; // buffer to send back a message to the client
+    private InetAddress myIp; // the ip of this node
 
     // **********************
     // Client side attributes
     // **********************
     private InetAddress hostIp; // node to talk to
     private Socket socketClient; // socket from which the node connect to host node
-    private ObjectOutputStream oosClient;
-    private ObjectInputStream oisClient;
+    private ObjectOutputStream oosClient; // buffer to speak to the host
+    private ObjectInputStream oisClient; // buffer to get the host input
 
-
-    // Constructor
+    /**
+     * Default Constructor
+     */
     public Node() {
         super();
         oosClient = null;
         oisClient = null;
     }
 
-    public Node(int portListen) throws IOException {
+    /**
+     * Constructor to give a port number to the node
+     * @param portListen port which will be used for listening
+     * @throws IOException
+     */
+    public Node(InetAddress myIp, int portListen) throws IOException {
+        this.myIp = myIp;
         this.portListen = portListen;
-        this.server = new ServerSocket(this.portListen); // open server for listening to message
+        this.server = new ServerSocket(this.portListen, 10, this.myIp); // open server for listening to message
     }
 
     // *******************
