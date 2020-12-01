@@ -1,9 +1,11 @@
+package model;
+
 public class PacketMessage extends Packet {
     private String message;
 
     /**
-     * Constructor of the PacketMessage class
-     * Calls Packet constructor super
+     * Constructor of the model.PacketMessage class
+     * Calls model.Packet constructor super
      *
      * @param author The author of the packet
      * @param recipient The recipient of the message

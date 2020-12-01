@@ -1,3 +1,5 @@
+package model;
+
 public abstract class Packet {
     private String author;
     private String recipient;

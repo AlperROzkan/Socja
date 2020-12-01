@@ -1,3 +1,5 @@
+package model;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -24,15 +26,6 @@ public class Node {
     private ObjectInputStream oisClient; // buffer to get the host input
 
     /**
-     * Default Constructor
-     */
-    public Node() {
-        super();
-        oosClient = null;
-        oisClient = null;
-    }
-
-    /**
      * Constructor to give a port number to the node
      * @param portListen port which will be used for listening
      * @throws IOException
@@ -41,6 +34,8 @@ public class Node {
         this.myIp = myIp;
         this.portListen = portListen;
         this.server = new ServerSocket(this.portListen, 10, this.myIp); // open server for listening to message
+        oosClient = null;
+        oisClient = null;
     }
 
     // *******************

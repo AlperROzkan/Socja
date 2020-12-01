@@ -1,7 +1,7 @@
+package model;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Deque;
-import java.util.Map;
 
 public class User {
     // Attributes describing the user
